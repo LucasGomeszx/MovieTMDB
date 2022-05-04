@@ -11,6 +11,8 @@
 		646C69532821EAB3001C476C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646C69522821EAB3001C476C /* SplashView.swift */; };
 		646C69552821EAB4001C476C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 646C69542821EAB4001C476C /* Assets.xcassets */; };
 		646C69582821EAB4001C476C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 646C69572821EAB4001C476C /* Preview Assets.xcassets */; };
+		646C6963282227CC001C476C /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646C6962282227CC001C476C /* SplashViewModel.swift */; };
+		646C696528222840001C476C /* SplashUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646C696428222840001C476C /* SplashUiState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		646C69522821EAB3001C476C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		646C69542821EAB4001C476C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		646C69572821EAB4001C476C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		646C6962282227CC001C476C /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		646C696428222840001C476C /* SplashUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashUiState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 		646C695F2822246D001C476C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				646C696428222840001C476C /* SplashUiState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 		646C696028222474001C476C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				646C6962282227CC001C476C /* SplashViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -169,6 +175,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				646C696528222840001C476C /* SplashUiState.swift in Sources */,
+				646C6963282227CC001C476C /* SplashViewModel.swift in Sources */,
 				646C69532821EAB3001C476C /* SplashView.swift in Sources */,
 				646C69512821EAB3001C476C /* MovieTMDBApp.swift in Sources */,
 			);

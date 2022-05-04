@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct SplashView: View {
+    
+    @ObservedObject var viewModel: SplashViewModel
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Group{
+            switch viewModel.UiState{
+            case .none:
+                Text("SplashView")
+            case .goToMovieView:
+                Text("Mudar para movie View")
+            }
+        }.onAppear(perform: viewModel.onAppear)
     }
 }
 
 struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
-        SplashView()
+        SplashView(viewModel: SplashViewModel())
     }
 }
