@@ -11,4 +11,10 @@ class MovieViewModel: ObservableObject {
     
     @Published var uiState: MovieUiState = .none
     
+    func onAppear() {
+        WebService.buscarFilmesPopulares(method: .get) { filmes in
+            
+        }
+    }
+    
 }

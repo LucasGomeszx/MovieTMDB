@@ -13,6 +13,7 @@ struct MovieView: View {
     
     var body: some View {
         Text("Estou na MovieView.")
+            .onAppear(perform: viewModel.onAppear)
     }
 }
 

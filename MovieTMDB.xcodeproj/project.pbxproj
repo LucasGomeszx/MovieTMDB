@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64045CDE28230402002A4E5F /* MovieCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64045CDD28230401002A4E5F /* MovieCardView.swift */; };
+		64045CE028230415002A4E5F /* MovieCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64045CDF28230415002A4E5F /* MovieCardViewModel.swift */; };
 		646C69512821EAB3001C476C /* MovieTMDBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646C69502821EAB3001C476C /* MovieTMDBApp.swift */; };
 		646C69532821EAB3001C476C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646C69522821EAB3001C476C /* SplashView.swift */; };
 		646C69552821EAB4001C476C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 646C69542821EAB4001C476C /* Assets.xcassets */; };
@@ -17,9 +19,13 @@
 		646C696D28222D10001C476C /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646C696C28222D10001C476C /* MovieViewModel.swift */; };
 		646C696F28222D43001C476C /* MovieUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646C696E28222D43001C476C /* MovieUiState.swift */; };
 		646C697228222E00001C476C /* SplashViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646C697128222E00001C476C /* SplashViewRouter.swift */; };
+		646C6976282233AF001C476C /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646C6975282233AF001C476C /* WebService.swift */; };
+		646C697828223CE4001C476C /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646C697728223CE4001C476C /* MovieResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64045CDD28230401002A4E5F /* MovieCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardView.swift; sourceTree = "<group>"; };
+		64045CDF28230415002A4E5F /* MovieCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardViewModel.swift; sourceTree = "<group>"; };
 		646C694D2821EAB3001C476C /* MovieTMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieTMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		646C69502821EAB3001C476C /* MovieTMDBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTMDBApp.swift; sourceTree = "<group>"; };
 		646C69522821EAB3001C476C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -31,6 +37,8 @@
 		646C696C28222D10001C476C /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		646C696E28222D43001C476C /* MovieUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUiState.swift; sourceTree = "<group>"; };
 		646C697128222E00001C476C /* SplashViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewRouter.swift; sourceTree = "<group>"; };
+		646C6975282233AF001C476C /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		646C697728223CE4001C476C /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 		646C694F2821EAB3001C476C /* MovieTMDB */ = {
 			isa = PBXGroup;
 			children = (
+				646C697328223371001C476C /* Common */,
 				646C696628222CD2001C476C /* Movies */,
 				646C695E28222463001C476C /* Splash */,
 				646C69502821EAB3001C476C /* MovieTMDBApp.swift */,
@@ -129,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				646C696E28222D43001C476C /* MovieUiState.swift */,
+				646C697728223CE4001C476C /* MovieResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				646C696C28222D10001C476C /* MovieViewModel.swift */,
+				64045CDF28230415002A4E5F /* MovieCardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -145,8 +156,25 @@
 			isa = PBXGroup;
 			children = (
 				646C696A28222CFB001C476C /* MovieView.swift */,
+				64045CDD28230401002A4E5F /* MovieCardView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		646C697328223371001C476C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				646C69742822337B001C476C /* Network */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		646C69742822337B001C476C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				646C6975282233AF001C476C /* WebService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,12 +247,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				646C6976282233AF001C476C /* WebService.swift in Sources */,
+				646C697828223CE4001C476C /* MovieResponse.swift in Sources */,
 				646C697228222E00001C476C /* SplashViewRouter.swift in Sources */,
 				646C696B28222CFB001C476C /* MovieView.swift in Sources */,
 				646C696528222840001C476C /* SplashUiState.swift in Sources */,
 				646C6963282227CC001C476C /* SplashViewModel.swift in Sources */,
 				646C69532821EAB3001C476C /* SplashView.swift in Sources */,
+				64045CDE28230402002A4E5F /* MovieCardView.swift in Sources */,
 				646C696F28222D43001C476C /* MovieUiState.swift in Sources */,
+				64045CE028230415002A4E5F /* MovieCardViewModel.swift in Sources */,
 				646C69512821EAB3001C476C /* MovieTMDBApp.swift in Sources */,
 				646C696D28222D10001C476C /* MovieViewModel.swift in Sources */,
 			);
