@@ -19,3 +19,11 @@ class SplashViewModel: ObservableObject {
     }
     
 }
+
+extension SplashViewModel {
+    
+    func goToMoivieView() -> some View{
+        return SplashViewRouter.makeViewMovie()
+    }
+    
+}

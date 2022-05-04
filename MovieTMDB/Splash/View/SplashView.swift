@@ -17,7 +17,7 @@ struct SplashView: View {
             case .none:
                 Text("SplashView")
             case .goToMovieView:
-                Text("Mudar para movie View")
+                viewModel.goToMoivieView()
             }
         }.onAppear(perform: viewModel.onAppear)
     }
