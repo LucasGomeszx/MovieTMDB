@@ -19,6 +19,6 @@ struct MovieView: View {
 
 struct MovieView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieView(viewModel: MovieViewModel())
+        MovieView(viewModel: MovieViewModel(interector: MovieInterector()))
     }
 }

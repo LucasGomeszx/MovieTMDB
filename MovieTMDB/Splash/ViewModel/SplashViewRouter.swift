@@ -10,7 +10,7 @@ import SwiftUI
 enum SplashViewRouter {
     
     static func makeViewMovie() -> some View {
-        return MovieView(viewModel: MovieViewModel())
+        return MovieView(viewModel: MovieViewModel(interector: MovieInterector()))
     }
     
 }

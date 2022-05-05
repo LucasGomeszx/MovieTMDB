@@ -6,15 +6,27 @@
 //
 
 import SwiftUI
+import Combine
 
 class MovieViewModel: ObservableObject {
     
     @Published var uiState: MovieUiState = .none
     
+    private let interector: MovieInterector
+    
+    init(interector: MovieInterector){
+        self.interector = interector
+    }
+    
     func onAppear() {
-        WebService.buscarFilmesPopulares(method: .get) { filmes in
-            
-        }
+        interector.buscarFilmesPopulares()
+            .receive(on: DispatchQueue.main)
+            .sink { error in
+                
+            } receiveValue: { filmes in
+                
+            }
+
     }
     
 }

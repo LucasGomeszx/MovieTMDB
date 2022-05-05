@@ -37,7 +37,7 @@ enum WebService {
         return URLRequest(url: url)
     }
     
-    static func buscarFilmesPopulares(method: Method, completion: @escaping (Result) -> Void ) {
+    static func call(method: Method, completion: @escaping (Result) -> Void ) {
         
         guard var urlRequest = completarUrl(path: .popular) else { return }
         
