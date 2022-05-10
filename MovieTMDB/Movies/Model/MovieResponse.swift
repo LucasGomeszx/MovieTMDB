@@ -29,12 +29,14 @@ struct Results: Decodable {
     let overview: String
     let releaseDate: String
     let title: String
+    let id: Int
     
     enum CodingKeys: String, CodingKey {
         case posterPath = "poster_path"
         case overview
         case releaseDate = "release_date"
         case title
+        case id
     }
     
 }

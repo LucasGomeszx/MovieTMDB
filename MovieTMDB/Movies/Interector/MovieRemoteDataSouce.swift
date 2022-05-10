@@ -15,8 +15,8 @@ class MovieRemoteDataSource {
     private init() {
     }
     
-    func buscarFilmesPopulares() -> Future<[Results], AppError> {
-        return Future<[Results], AppError> { promice in
+    func buscarFilmesPopulares() -> Future<MovieResponse, AppError> {
+        return Future<MovieResponse, AppError> { promice in
             WebService.call(method: .get) { result in
                 switch result {
                     
@@ -29,7 +29,7 @@ class MovieRemoteDataSource {
                         return
                     }
                     print(res.results)
-                    promice(.success(res.results))
+                    promice(.success(res))
                     break
                     
                 // Erro no request.

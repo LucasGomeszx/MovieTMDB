@@ -12,8 +12,16 @@ struct MovieView: View {
     @ObservedObject var viewModel: MovieViewModel
     
     var body: some View {
-        Text("Estou na MovieView.")
-            .onAppear(perform: viewModel.onAppear)
+        ZStack{
+            if case MovieUiState.fullList(let rows) = viewModel.uiState {
+                List {
+                    ForEach(rows) { row in
+                        MovieCardView(viewModel: row)
+                    }
+                    
+                }
+            }
+        }.onAppear(perform: viewModel.onAppear)
     }
 }
 

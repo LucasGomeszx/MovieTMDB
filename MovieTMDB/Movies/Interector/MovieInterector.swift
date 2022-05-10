@@ -16,7 +16,7 @@ class MovieInterector {
 
 extension MovieInterector {
     
-    func buscarFilmesPopulares() -> Future<[Results], AppError>{
+    func buscarFilmesPopulares() -> Future<MovieResponse, AppError>{
         return remote.buscarFilmesPopulares()
     }
     

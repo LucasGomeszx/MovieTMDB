@@ -13,20 +13,29 @@ class MovieViewModel: ObservableObject {
     @Published var uiState: MovieUiState = .none
     
     private let interector: MovieInterector
+    private var concelableRequest: AnyCancellable?
     
     init(interector: MovieInterector){
         self.interector = interector
     }
     
-    func onAppear() {
-        interector.buscarFilmesPopulares()
-            .receive(on: DispatchQueue.main)
-            .sink { error in
-                
-            } receiveValue: { filmes in
-                
-            }
-
+    deinit{
+        concelableRequest?.cancel()
     }
     
+    func onAppear() {
+        concelableRequest = interector.buscarFilmesPopulares()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: {completion in
+                
+            }, receiveValue: {response in
+                self.uiState = .fullList(
+                    response.results.map {
+                        
+                        return MovieCardViewModel(id: $0.id,title: $0.title)
+                    }
+                )
+            })
+        
+    }
 }

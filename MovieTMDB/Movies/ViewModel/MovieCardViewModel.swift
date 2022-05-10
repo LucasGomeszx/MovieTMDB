@@ -6,15 +6,17 @@
 //
 
 import Foundation
+import SwiftUI
 
 
 struct MovieCardViewModel: Identifiable, Equatable {
     
-    let id: Int = 0
+    var id: Int = 0
+    var title: String
     
     
-    static func == (lhz: MovieCardViewModel, rhz: MovieCardViewModel) -> Bool {
-        return lhz.id == rhz.id
+    static func == (lhs: MovieCardViewModel, rhs: MovieCardViewModel) -> Bool {
+        return lhs.id == rhs.id
     }
     
 }

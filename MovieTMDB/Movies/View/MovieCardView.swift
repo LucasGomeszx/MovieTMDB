@@ -13,7 +13,7 @@ struct MovieCardView: View {
     
     var body: some View {
         ZStack(alignment: .trailing) {
-
+            Text(viewModel.title)
         }
     }
     
@@ -21,6 +21,6 @@ struct MovieCardView: View {
 
 struct MovieCardView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieCardView(viewModel: MovieCardViewModel())
+        MovieCardView(viewModel: MovieCardViewModel(title: "Miranha"))
     }
 }

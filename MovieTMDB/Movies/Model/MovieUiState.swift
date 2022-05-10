@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-enum MovieUiState {
+enum MovieUiState: Equatable {
     case none
     case loading
     case emptList
-    case fullList
+    case fullList([MovieCardViewModel])
 }
