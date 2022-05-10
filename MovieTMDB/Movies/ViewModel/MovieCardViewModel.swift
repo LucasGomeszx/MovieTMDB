@@ -13,6 +13,9 @@ struct MovieCardViewModel: Identifiable, Equatable {
     
     var id: Int = 0
     var title: String
+    var poster: String?
+    var desc: String
+    var data: String
     
     
     static func == (lhs: MovieCardViewModel, rhs: MovieCardViewModel) -> Bool {
