@@ -16,7 +16,7 @@ struct MovieView: View {
             ScrollView {
                 VStack{
                     if case MovieUiState.fullList(let rows) = viewModel.uiState {
-                            ForEach(rows) { row in
+                        ForEach(rows) { row in
                                 MovieCardView(viewModel: row)
                         }
                     }
