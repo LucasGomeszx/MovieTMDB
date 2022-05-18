@@ -6,7 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 class HomeViewRouter {
+    
+    static func makeMoviewView(viewModel: MovieViewModel) -> some View {
+        return MovieView(viewModel: viewModel)
+    }
     
 }

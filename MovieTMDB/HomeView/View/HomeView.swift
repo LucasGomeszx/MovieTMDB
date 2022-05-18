@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @ObservedObject var viewModel = HomeViewModel()
+    
+    @State var selection = 0
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView(selection: $selection){
+            viewModel.moviesView()
+                .tabItem {
+                    Image(systemName: "film")
+                    Text("Filmes Populares")
+                }.tag(0)
+            Text("fetchMovies")
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Buscar Filme")
+                }.tag(1)
+        }
+        .background(Color.white)
     }
 }
 

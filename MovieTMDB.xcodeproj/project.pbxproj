@@ -112,9 +112,10 @@
 		646C694F2821EAB3001C476C /* MovieTMDB */ = {
 			isa = PBXGroup;
 			children = (
-				64A94DAC282DFAAB00738D96 /* HomeView */,
+				649EB5B22835466900CFD7BD /* FetchMovies */,
 				646C697328223371001C476C /* Common */,
 				646C696628222CD2001C476C /* Movies */,
+				64A94DAC282DFAAB00738D96 /* HomeView */,
 				646C695E28222463001C476C /* Splash */,
 				646C69502821EAB3001C476C /* MovieTMDBApp.swift */,
 				646C69542821EAB4001C476C /* Assets.xcassets */,
@@ -223,10 +224,40 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		649EB5B22835466900CFD7BD /* FetchMovies */ = {
+			isa = PBXGroup;
+			children = (
+				649EB5B5283546EE00CFD7BD /* View */,
+				649EB5B4283546DC00CFD7BD /* ViewModel */,
+				649EB5B3283546D700CFD7BD /* Model */,
+			);
+			path = FetchMovies;
+			sourceTree = "<group>";
+		};
+		649EB5B3283546D700CFD7BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		649EB5B4283546DC00CFD7BD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		649EB5B5283546EE00CFD7BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		64A94DAC282DFAAB00738D96 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				64A94DB3282DFB4500738D96 /* Interector */,
 				64A94DAE282DFABE00738D96 /* ViewModel */,
 				64A94DAD282DFAB300738D96 /* View */,
 			);
@@ -248,13 +279,6 @@
 				64A94DB4282DFBB200738D96 /* HomeViewRouter.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		64A94DB3282DFB4500738D96 /* Interector */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interector;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
