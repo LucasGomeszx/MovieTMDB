@@ -10,7 +10,7 @@ import Combine
 
 class MovieViewModel: ObservableObject {
     
-    @Published var uiState: MovieUiState = .none
+    @Published var uiState: MovieUiState = .loading
     
     private let interector: MovieInterector
     private var concelableRequest: AnyCancellable?
@@ -24,6 +24,9 @@ class MovieViewModel: ObservableObject {
     }
     
     func onAppear() {
+        
+        self.uiState = .loading
+        
         concelableRequest = interector.buscarFilmesPopulares()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: {completion in

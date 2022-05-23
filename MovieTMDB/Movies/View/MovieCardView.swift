@@ -9,12 +9,19 @@ import SwiftUI
 
 struct MovieCardView: View {
     
+    @State private var action = false
+    
     let viewModel: MovieCardViewModel
     
     var body: some View {
         ZStack {
+            
+            NavigationLink(destination: viewModel.movieDetailView,
+                           isActive: $action,
+                           label: {EmptyView()})
+            
             Button {
-                
+                self.action = true
             } label: {
                 HStack (alignment: .top) {
                     VStack {

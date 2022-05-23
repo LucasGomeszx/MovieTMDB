@@ -13,11 +13,15 @@ struct MovieView: View {
     
     var body: some View {
         ZStack{
-            ScrollView {
-                VStack{
-                    if case MovieUiState.fullList(let rows) = viewModel.uiState {
-                        ForEach(rows) { row in
-                                MovieCardView(viewModel: row)
+            if  MovieUiState.loading == viewModel.uiState {
+                    ProgressView()
+            }else {
+                ScrollView {
+                    VStack{
+                        if case MovieUiState.fullList(let rows) = viewModel.uiState {
+                            ForEach(rows) { row in
+                                    MovieCardView(viewModel: row)
+                            }
                         }
                     }
                 }

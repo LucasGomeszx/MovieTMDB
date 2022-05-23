@@ -9,5 +9,5 @@ import Foundation
 
 enum SplashUiState {
     case none
-    case goToMovieView
+    case goToHomeView
 }

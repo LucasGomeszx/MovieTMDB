@@ -16,8 +16,8 @@ struct SplashView: View {
             switch viewModel.UiState{
             case .none:
                 Text("SplashView")
-            case .goToMovieView:
-                viewModel.goToMoivieView()
+            case .goToHomeView:
+                viewModel.goToHomeView()
             }
         }.onAppear(perform: viewModel.onAppear)
     }

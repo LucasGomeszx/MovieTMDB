@@ -14,7 +14,7 @@ class SplashViewModel: ObservableObject {
     func onAppear() {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.UiState = .goToMovieView
+            self.UiState = .goToHomeView
         }
     }
     
@@ -22,7 +22,7 @@ class SplashViewModel: ObservableObject {
 
 extension SplashViewModel {
     
-    func goToMoivieView() -> some View{
+    func goToHomeView() -> some View{
         return SplashViewRouter.makeViewMovie()
     }
     

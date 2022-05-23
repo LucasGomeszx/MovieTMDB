@@ -93,6 +93,45 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6424A523283C215300E386F6 /* MoviewDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				6424A527283C217300E386F6 /* Interactor */,
+				6424A526283C216C00E386F6 /* ViewModel */,
+				6424A525283C216800E386F6 /* View */,
+				6424A524283C216200E386F6 /* Model */,
+			);
+			path = MoviewDetailView;
+			sourceTree = "<group>";
+		};
+		6424A524283C216200E386F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6424A525283C216800E386F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6424A526283C216C00E386F6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6424A527283C217300E386F6 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		646C69442821EAB3001C476C = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +153,7 @@
 			children = (
 				649EB5B22835466900CFD7BD /* FetchMovies */,
 				646C697328223371001C476C /* Common */,
+				6424A523283C215300E386F6 /* MoviewDetailView */,
 				646C696628222CD2001C476C /* Movies */,
 				64A94DAC282DFAAB00738D96 /* HomeView */,
 				646C695E28222463001C476C /* Splash */,
