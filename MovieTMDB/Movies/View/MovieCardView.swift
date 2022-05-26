@@ -16,8 +16,8 @@ struct MovieCardView: View {
     var body: some View {
         ZStack {
             
-            NavigationLink(destination: viewModel.movieDetailView,
-                           isActive: $action,
+            NavigationLink(destination: viewModel.movieDetailView(),
+                           isActive: self.$action,
                            label: {EmptyView()})
             
             Button {
@@ -32,6 +32,7 @@ struct MovieCardView: View {
                             .clipped()
                         
                         Text(viewModel.data)
+                            .foregroundColor(.gray)
                         
                     }
 

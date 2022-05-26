@@ -22,4 +22,8 @@ struct MovieCardViewModel: Identifiable, Equatable {
         return lhs.id == rhs.id
     }
     
+    func movieDetailView() -> some View {
+        return MovieCardViewRouter.makeMovieDetailView(id: id, title: title, poster: poster, disc: desc, date: data)
+    }
+    
 }

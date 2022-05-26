@@ -16,14 +16,17 @@ struct MovieView: View {
             if  MovieUiState.loading == viewModel.uiState {
                     ProgressView()
             }else {
-                ScrollView {
-                    VStack{
-                        if case MovieUiState.fullList(let rows) = viewModel.uiState {
-                            ForEach(rows) { row in
-                                    MovieCardView(viewModel: row)
+                NavigationView{
+                    ScrollView {
+                        VStack{
+                            if case MovieUiState.fullList(let rows) = viewModel.uiState {
+                                ForEach(rows) { row in
+                                        MovieCardView(viewModel: row)
+                                }
                             }
                         }
                     }
+                    .navigationTitle("Filmes Populares")
                 }
             }
         }.onAppear(perform: viewModel.onAppear)
