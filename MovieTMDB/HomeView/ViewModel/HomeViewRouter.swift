@@ -14,4 +14,8 @@ class HomeViewRouter {
         return MovieView(viewModel: viewModel)
     }
     
+    static func makeFetchMovieView(viewModel: FetchMovieViewModel) -> some View {
+        return FetchMoviesView(viewModel: viewModel)
+    }
+    
 }

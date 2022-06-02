@@ -1,26 +1,24 @@
 //
-//  MovieRemoteDataSouce.swift
+//  FetchRemoteDataSource.swift
 //  MovieTMDB
 //
-//  Created by Lucas Gomesx on 05/05/22.
+//  Created by Lucas Gomesx on 31/05/22.
 //
 
 import Foundation
 import Combine
 
-class MovieRemoteDataSource {
+class FetchRemoteDataSource {
     
-    static var shered: MovieRemoteDataSource = MovieRemoteDataSource()
     
-    private init() {
-    }
+    static var shered = FetchRemoteDataSource()
     
-    func buscarFilmesPopulares() -> Future<MovieResponse, AppError> {
+    private init() {}
+    
+    func buscarFilmes(fetch: String) -> Future<MovieResponse, AppError> {
         return Future<MovieResponse, AppError> { promice in
-            WebService.call(method: .get) { result in
+            WebService.callFetch(method: .get, fetch: fetch) { result in
                 switch result {
-                    
-                // Filmes populares.
                 case .success(let data):
                     let decoder = JSONDecoder()
                     let response = try? decoder.decode(MovieResponse.self, from: data)
@@ -30,10 +28,9 @@ class MovieRemoteDataSource {
                     }
                     promice(.success(res))
                     break
-                    
-                // Erro no request.
                 case .failure(_, let data):
                     if let data = data {
+                        print(data)
                         let decoder = JSONDecoder()
                         let response = try? decoder.decode(MovieResponseError.self, from: data)
                         promice(.failure(AppError.response(message: response?.status_message ?? "Error desconhecido")))
@@ -43,4 +40,5 @@ class MovieRemoteDataSource {
             }
         }
     }
+    
 }

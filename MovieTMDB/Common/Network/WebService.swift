@@ -11,8 +11,9 @@ enum WebService {
     
     enum Endpoint: String {
         case base = "https://api.themoviedb.org/3"
-        case apiKey = "?api_key=a418c1d2207524b9f775ba6cb3c50ad6"
+        case apiKey = "api_key=a418c1d2207524b9f775ba6cb3c50ad6"
         case popular = "/movie/popular"
+        case buscar = "/search/movie?&query="
     }
     
     enum Method: String {
@@ -32,9 +33,48 @@ enum WebService {
     }
     
     private static func completarUrl(path: Endpoint) -> URLRequest? {
-        guard let url = URL(string: "\(Endpoint.base.rawValue)\(path.rawValue)\(Endpoint.apiKey.rawValue)") else { return nil }
+        guard let url = URL(string: "\(Endpoint.base.rawValue)\(path.rawValue)\("?" + Endpoint.apiKey.rawValue)") else { return nil }
         
         return URLRequest(url: url)
+    }
+    
+    private static func filmeBusca(fetch: String) -> URLRequest? {
+        guard let url = URL(string: "\(Endpoint.base.rawValue)\(Endpoint.buscar.rawValue)\(fetch)\("&"+Endpoint.apiKey.rawValue)") else { return nil }
+        
+        return URLRequest(url: url)
+    }
+    
+    static func callFetch(method: Method, fetch: String, completion: @escaping (Result) -> Void){
+        
+        guard var urlRequest = filmeBusca(fetch: fetch) else {return}
+        
+        urlRequest.httpMethod = method.rawValue
+        urlRequest.setValue("application/json", forHTTPHeaderField: "accept")
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            
+            guard let data = data, error == nil else {
+                completion(.failure(.internalServerError, nil))
+                return
+            }
+            
+            if let r = response as? HTTPURLResponse {
+                switch r.statusCode {
+                case 404:
+                    completion(.failure(.notFound, data))
+                    break
+                case 401:
+                    completion(.failure(.unathorized, data))
+                    break
+                case 200:
+                    completion(.success(data))
+                    break
+                default:
+                    break
+                }
+            }
+        }
+        task.resume()
     }
     
     static func call(method: Method, completion: @escaping (Result) -> Void ) {
@@ -69,5 +109,4 @@ enum WebService {
         }
         task.resume()
     }
-    
 }

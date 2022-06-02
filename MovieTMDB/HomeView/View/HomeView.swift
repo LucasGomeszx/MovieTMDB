@@ -20,7 +20,7 @@ struct HomeView: View {
                     Image(systemName: "film")
                     Text("Filmes Populares")
                 }.tag(0)
-            Text("fetchMovies")
+            viewModel.fetchMovieView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Buscar Filme")
