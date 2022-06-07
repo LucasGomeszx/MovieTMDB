@@ -32,54 +32,33 @@ enum WebService {
         case failure(NetworkError, Data?)
     }
     
-    private static func completarUrl(path: Endpoint) -> URLRequest? {
-        guard let url = URL(string: "\(Endpoint.base.rawValue)\(path.rawValue)\("?" + Endpoint.apiKey.rawValue)") else { return nil }
+    static func filmesPopulares(path: Endpoint, completion: @escaping (Result) -> Void) {
+        guard let url = URL(string: "\(Endpoint.base.rawValue)\(path.rawValue)\("?" + Endpoint.apiKey.rawValue)") else { return }
+        let filmesPopulares = URLRequest(url: url)
         
-        return URLRequest(url: url)
+        callFetch(method: .get, fetch: filmesPopulares, completion: completion)
     }
     
-    private static func filmeBusca(fetch: String) -> URLRequest? {
-        guard let url = URL(string: "\(Endpoint.base.rawValue)\(Endpoint.buscar.rawValue)\(fetch)\("&"+Endpoint.apiKey.rawValue)") else { return nil }
-        
-        return URLRequest(url: url)
-    }
-    
-    static func callFetch(method: Method, fetch: String, completion: @escaping (Result) -> Void){
-        
-        guard var urlRequest = filmeBusca(fetch: fetch) else {return}
-        
-        urlRequest.httpMethod = method.rawValue
-        urlRequest.setValue("application/json", forHTTPHeaderField: "accept")
-        
-        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            
-            guard let data = data, error == nil else {
-                completion(.failure(.internalServerError, nil))
-                return
-            }
-            
-            if let r = response as? HTTPURLResponse {
-                switch r.statusCode {
-                case 404:
-                    completion(.failure(.notFound, data))
-                    break
-                case 401:
-                    completion(.failure(.unathorized, data))
-                    break
-                case 200:
-                    completion(.success(data))
-                    break
-                default:
-                    break
-                }
+    static func filmeBusca(fetch: String, completion: @escaping (Result) -> Void) {
+        var nomeFilme:[String] = []
+        for i in fetch {
+            if i != " "{
+                nomeFilme.append("\(i)")
+            }else {
+                nomeFilme.append("%20")
             }
         }
-        task.resume()
+        print(nomeFilme)
+        guard let url = URL(string: "\(Endpoint.base.rawValue)\(Endpoint.buscar.rawValue)\(nomeFilme.joined())\("&"+Endpoint.apiKey.rawValue)") else {return}
+        
+        let busca = URLRequest(url: url)
+        
+        callFetch(method: .get, fetch: busca, completion: completion)
     }
     
-    static func call(method: Method, completion: @escaping (Result) -> Void ) {
+    static func callFetch(method: Method, fetch: URLRequest?, completion: @escaping (Result) -> Void){
         
-        guard var urlRequest = completarUrl(path: .popular) else { return }
+        guard var urlRequest = fetch else {return}
         
         urlRequest.httpMethod = method.rawValue
         urlRequest.setValue("application/json", forHTTPHeaderField: "accept")

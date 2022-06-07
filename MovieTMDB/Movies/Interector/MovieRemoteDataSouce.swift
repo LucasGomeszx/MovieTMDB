@@ -17,7 +17,7 @@ class MovieRemoteDataSource {
     
     func buscarFilmesPopulares() -> Future<MovieResponse, AppError> {
         return Future<MovieResponse, AppError> { promice in
-            WebService.call(method: .get) { result in
+            WebService.filmesPopulares(path: .popular) { result in
                 switch result {
                     
                 // Filmes populares.

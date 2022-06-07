@@ -17,7 +17,7 @@ class FetchRemoteDataSource {
     
     func buscarFilmes(fetch: String) -> Future<MovieResponse, AppError> {
         return Future<MovieResponse, AppError> { promice in
-            WebService.callFetch(method: .get, fetch: fetch) { result in
+            WebService.filmeBusca(fetch: fetch) { result in
                 switch result {
                 case .success(let data):
                     let decoder = JSONDecoder()
@@ -40,5 +40,4 @@ class FetchRemoteDataSource {
             }
         }
     }
-    
 }
