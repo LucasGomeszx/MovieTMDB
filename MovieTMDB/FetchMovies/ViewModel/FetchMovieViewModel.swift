@@ -32,7 +32,7 @@ class FetchMovieViewModel: ObservableObject {
             }, receiveValue: { response in
                 self.uiState = .fullList(
                     response.results.map{
-                        return MovieCardViewModel(id: $0.id, title: $0.title, poster: $0.posterPath, desc: $0.overview, data: $0.releaseDate)
+                        return MovieCardViewModel(id: $0.id, title: $0.title, poster: $0.posterPath, desc: $0.overview, data: $0.releaseDate ?? "")
                     }
                 )
             })

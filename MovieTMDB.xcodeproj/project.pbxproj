@@ -109,21 +109,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		6424A523283C215300E386F6 /* MoviewDetailView */ = {
+		6424A523283C215300E386F6 /* MovieDetailView */ = {
 			isa = PBXGroup;
 			children = (
 				6424A526283C216C00E386F6 /* ViewModel */,
 				6424A525283C216800E386F6 /* View */,
-				6424A524283C216200E386F6 /* Model */,
 			);
-			path = MoviewDetailView;
-			sourceTree = "<group>";
-		};
-		6424A524283C216200E386F6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
+			path = MovieDetailView;
 			sourceTree = "<group>";
 		};
 		6424A525283C216800E386F6 /* View */ = {
@@ -163,7 +155,7 @@
 			children = (
 				646C697328223371001C476C /* Common */,
 				649EB5B22835466900CFD7BD /* FetchMovies */,
-				6424A523283C215300E386F6 /* MoviewDetailView */,
+				6424A523283C215300E386F6 /* MovieDetailView */,
 				646C696628222CD2001C476C /* Movies */,
 				64A94DAC282DFAAB00738D96 /* HomeView */,
 				646C695E28222463001C476C /* Splash */,

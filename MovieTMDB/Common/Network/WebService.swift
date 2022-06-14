@@ -14,6 +14,7 @@ enum WebService {
         case apiKey = "api_key=a418c1d2207524b9f775ba6cb3c50ad6"
         case popular = "/movie/popular"
         case buscar = "/search/movie?&query="
+        case page = "&page="
     }
     
     enum Method: String {
@@ -32,8 +33,8 @@ enum WebService {
         case failure(NetworkError, Data?)
     }
     
-    static func filmesPopulares(path: Endpoint, completion: @escaping (Result) -> Void) {
-        guard let url = URL(string: "\(Endpoint.base.rawValue)\(path.rawValue)\("?" + Endpoint.apiKey.rawValue)") else { return }
+    static func filmesPopulares(path: Endpoint, page: Int, completion: @escaping (Result) -> Void) {
+        guard let url = URL(string: "\(Endpoint.base.rawValue)\(path.rawValue)\("?" + Endpoint.apiKey.rawValue)\(Endpoint.page.rawValue)\(page)") else { return }
         let filmesPopulares = URLRequest(url: url)
         
         callFetch(method: .get, fetch: filmesPopulares, completion: completion)

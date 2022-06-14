@@ -14,14 +14,19 @@ struct MovieView: View {
     var body: some View {
         ZStack{
             if  MovieUiState.loading == viewModel.uiState {
-                    ProgressView()
+                ProgressView()
             }else {
                 NavigationView{
-                    ScrollView {
-                        VStack{
+                    ScrollView(showsIndicators: false) {
+                        LazyVStack{
                             if case MovieUiState.fullList(let rows) = viewModel.uiState {
-                                ForEach(rows) { row in
-                                        MovieCardView(viewModel: row)
+                                ForEach(Array(rows.enumerated()), id: \.offset) { index, row in
+                                    MovieCardView(viewModel: row)
+                                        .onAppear {
+                                            if index == rows.count - 1 {
+                                                viewModel.loadMoreMovies()
+                                            }
+                                        }
                                 }
                             }
                         }

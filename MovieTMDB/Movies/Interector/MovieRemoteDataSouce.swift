@@ -12,12 +12,15 @@ class MovieRemoteDataSource {
     
     static var shered: MovieRemoteDataSource = MovieRemoteDataSource()
     
+    var page = 1
+    var totalPage = 1
+    
     private init() {
     }
     
     func buscarFilmesPopulares() -> Future<MovieResponse, AppError> {
         return Future<MovieResponse, AppError> { promice in
-            WebService.filmesPopulares(path: .popular) { result in
+            WebService.filmesPopulares(path: .popular, page: self.page) { result in
                 switch result {
                     
                 // Filmes populares.
@@ -28,6 +31,8 @@ class MovieRemoteDataSource {
                         print("Error parse \(String(data:data, encoding: .utf8)!)")
                         return
                     }
+                    self.page = res.page + 1
+                    self.totalPage = res.totalPages
                     promice(.success(res))
                     break
                     

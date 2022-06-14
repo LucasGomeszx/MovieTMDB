@@ -27,7 +27,7 @@ struct Results: Decodable {
     
     let posterPath: String?
     let overview: String
-    let releaseDate: String
+    let releaseDate: String?
     let title: String
     let id: Int
     
